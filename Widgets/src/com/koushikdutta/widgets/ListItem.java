@@ -221,7 +221,7 @@ public class ListItem {
                 iv.setVisibility(View.GONE);
             }
         }
-        
+
         return convertView;
     }
     
