@@ -57,7 +57,7 @@ public class SeparatedListAdapter<T extends Adapter> extends BaseAdapter {
     }
 
     public SeparatedListAdapter(Context context) {
-        headers = new ArrayAdapter<String>(context, getListHeaderResource(), android.R.id.text1);
+        headers = new ArrayAdapter<String>(context, getListHeaderResource(), R.id.text1);
     }
 
     public void clear() {

@@ -16,13 +16,13 @@
 
 package com.koushikdutta.widgets;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.koushikdutta.widgets.BetterListFragment.ActivityBaseFragmentListener;
 
-public class BetterListActivity extends Activity implements ActivityBaseFragmentListener {
+public class BetterListActivity extends AppCompatActivity implements ActivityBaseFragmentListener {
     Class<? extends BetterListFragment> clazz;
     public BetterListActivity(Class<? extends BetterListFragment> clazz) {
         super();
@@ -35,7 +35,7 @@ public class BetterListActivity extends Activity implements ActivityBaseFragment
     }
 
     public BetterListFragment getFragment() {
-        return (BetterListFragment)getFragmentManager().findFragmentByTag("betterlist");
+        return (BetterListFragment)getSupportFragmentManager().findFragmentByTag("betterlist");
     }
 
     protected int getListContainerId() {
@@ -58,7 +58,7 @@ public class BetterListActivity extends Activity implements ActivityBaseFragment
                 BetterListFragment fragment = (BetterListFragment)clazz.getConstructors()[0].newInstance();
                 fragment.setListener(this);
                 fragment.setArguments(getIntent().getExtras());
-                getFragmentManager().beginTransaction().replace(getListContainerId(), fragment, "betterlist").commit();
+                getSupportFragmentManager().beginTransaction().replace(getListContainerId(), fragment, "betterlist").commit();
             }
             catch (Exception e) {
                 e.printStackTrace();

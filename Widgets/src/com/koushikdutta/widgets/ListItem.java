@@ -95,7 +95,11 @@ public class ListItem {
         mFragment.mAdapter.notifyDataSetChanged();
         return this;
     }
-    
+
+    public ListItem(BetterListFragment context, int title) {
+        this(context, title, 0);
+    }
+
     public ListItem(BetterListFragment context, int title, int summary) {
         if (title != 0)
             Title = context.getString(title);
@@ -103,7 +107,11 @@ public class ListItem {
             Summary = context.getString(summary);
         mFragment = context;
     }
-    
+
+    public ListItem(BetterListFragment context, String title) {
+        this(context, title, null);
+    }
+
     public ListItem(BetterListFragment context, String title, String summary) {
         Title = title;
         Summary = summary;
@@ -155,7 +163,8 @@ public class ListItem {
         if (convertView == null || convertView.getTag() != null) {
             convertView = inflater.inflate(mFragment.getListItemResource(), null);
         }
-        
+
+
         TextView title = (TextView)convertView.findViewById(R.id.title);
         TextView summary = (TextView)convertView.findViewById(R.id.summary);
         CompoundButton cb = (CompoundButton)convertView.findViewById(R.id.checkbox);
@@ -180,15 +189,15 @@ public class ListItem {
         if (Title != null) {
             title.setVisibility(View.VISIBLE);
             title.setText(Title);
-        }
-        else
+        } else {
             title.setVisibility(View.GONE);
+        }
         if (Summary != null) {
             summary.setVisibility(View.VISIBLE);
             summary.setText(Summary);
-        }
-        else
+        } else {
             summary.setVisibility(View.GONE);
+        }
 
         ImageView iv = (ImageView)convertView.findViewById(R.id.image);
         if (iv != null) {

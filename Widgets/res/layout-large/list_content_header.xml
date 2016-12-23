@@ -5,7 +5,7 @@
     android:paddingLeft="?attr/listPreferredItemPaddingLeft" >
 
     <TextView
-        android:id="@android:id/text1"
+        android:id="@+id/text1"
         style="?attr/listContentHeader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
