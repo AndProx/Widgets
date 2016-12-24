@@ -108,6 +108,14 @@ public class ListItem {
         mFragment = context;
     }
 
+    public ListItem(BetterListFragment context, int title, String summary) {
+        if (title != 0)
+            Title = context.getString(title);
+        Summary = summary;
+        mFragment = context;
+    }
+
+
     public ListItem(BetterListFragment context, String title) {
         this(context, title, null);
     }
